@@ -44,7 +44,7 @@ namespace Nop.Web
 
         protected void Application_Start()
         {
-            //most of API providers require TLS 1.2 nowadays
+            //指定传输协议
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             //disable "X-AspNetMvc-Version" header name
@@ -115,7 +115,7 @@ namespace Nop.Web
             if (!DataSettingsHelper.DatabaseIsInstalled())
             {
                 string installUrl = string.Format("{0}install", webHelper.GetStoreLocation());
-                if (!webHelper.GetThisPageUrl(false).StartsWith(installUrl, StringComparison.InvariantCultureIgnoreCase))
+                if (!webHelper.GetThisPageUrl(false).StartsWith(installUrl, StringCompa     rison.InvariantCultureIgnoreCase))
                 {
                     this.Response.Redirect(installUrl);
                 }
